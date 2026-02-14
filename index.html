@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#0a1828">
+    <meta name="description" content="Ucapan Ramadhan Spesial untuk Orang Tersayang">
+    <title>Ucapan Ramadhan Spesial</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Opening Screen -->
+    <div class="opening-screen" id="openingScreen">
+        <div class="crescent-moon"></div>
+        <div class="opening-content">
+            <h1 class="opening-title">Ada Pesan Spesial Untuk Kamu 🌙</h1>
+            <p class="opening-subtitle">Klik untuk membuka</p>
+            <button class="open-button" id="openButton">Buka Pesan</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="card-container">
+            <div class="ornament top-left">✦</div>
+            <div class="ornament bottom-right">✦</div>
+
+            <div class="profile-section">
+                <!-- EDIT DI SINI - Ganti src dengan URL foto atau path foto lokal -->
+                <img src="assets/image.png" alt="Profile" class="profile-photo" id="profilePhoto">
+
+                <!-- EDIT DI SINI - Ganti nama penerima -->
+                <h2 class="recipient-name" id="recipientName">Untuk Aisyah 🤍</h2>
+            </div>
+
+            <div class="message-section">
+                <!-- EDIT DI SINI - Ganti judul ucapan -->
+                <h1 class="message-title" id="messageTitle">Marhaban Ya Ramadhan</h1>
+
+                <!-- EDIT DI SINI - Ganti isi ucapan (bisa tambah paragraf dengan tag <p>) -->
+                <div class="message-text" id="messageText">
+                    <p>Di bulan yang penuh berkah ini, aku ingin mengirimkan ucapan terbaik untukmu. Semoga Ramadhan
+                        kali ini membawa kedamaian, kebahagiaan, dan keberkahan dalam setiap langkah hidupmu.</p>
+
+                    <p>Semoga setiap doa yang kamu panjatkan dikabulkan oleh Allah SWT, dan semoga kita selalu dalam
+                        lindungan-Nya. Selamat menjalankan ibadah puasa, semoga kita bisa menjadi pribadi yang lebih
+                        baik di bulan suci ini.</p>
+
+                    <p>Ramadhan Mubarak! 🌙✨</p>
+                </div>
+
+                <!-- Reply Button -->
+                <div class="reply-button-container">
+                    <button class="reply-button" id="replyButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                            </path>
+                        </svg>
+                        Kirim Balasan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reply Form Sidebar -->
+    <div class="reply-sidebar" id="replySidebar">
+        <div class="sidebar-header">
+            <h3>Kirim Balasan 💬</h3>
+            <button class="close-button" id="closeSidebar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="sidebar-content">
+            <form id="replyForm">
+                <div class="form-group">
+                    <label for="senderName">Nama Kamu</label>
+                    <input type="text" id="senderName" placeholder="Masukkan nama kamu" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="replyMessage">Pesan Balasan</label>
+                    <textarea id="replyMessage" rows="6" placeholder="Tulis pesan balasanmu disini..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                    </svg>
+                    Kirim ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Audio Control -->
+    <div class="audio-control" id="audioControl" style="display: none;">
+        <svg id="audioIcon" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+        </svg>
+    </div>
+
+    <!-- EDIT DI SINI - Ganti src dengan URL musik atau path file musik lokal -->
+    <!-- Format yang didukung: .mp3, .wav, .ogg -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
