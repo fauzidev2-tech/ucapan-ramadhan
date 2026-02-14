@@ -121,12 +121,12 @@ const backgroundMusic = document.getElementById('backgroundMusic');
 openButton.addEventListener('click', () => {
     // Fade out opening screen
     openingScreen.classList.add('fade-out');
-    
+
     setTimeout(() => {
         openingScreen.style.display = 'none';
         mainContent.classList.add('visible');
         audioControl.style.display = 'flex';
-        
+
         // Autoplay music
         backgroundMusic.play().catch(e => {
             console.log('Autoplay prevented:', e);
@@ -142,7 +142,7 @@ openButton.addEventListener('click', () => {
 // ============================================
 function createConfetti() {
     const colors = ['#d4af37', '#f4e4a6', '#178582', '#2da39f'];
-    
+
     for (let i = 0; i < 50; i++) {
         setTimeout(() => {
             const confetti = document.createElement('div');
@@ -183,7 +183,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     document.addEventListener('mousemove', (e) => {
         const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
         const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-        
+
         const card = document.querySelector('.card-container');
         if (card && mainContent.classList.contains('visible')) {
             card.style.transform = `translate(${moveX}px, ${moveY}px)`;
@@ -220,7 +220,7 @@ window.addEventListener('resize', () => {
 // EDIT DI SINI - Ganti dengan nomor WhatsApp Anda
 // Format: 628xxxxx (tanpa +, tanpa spasi, tanpa tanda hubung)
 // Contoh: 6281234567890
-const WHATSAPP_NUMBER = '62881010897627'; // GANTI DENGAN NOMOR WHATSAPP ANDA
+const WHATSAPP_NUMBER = '6285780688699'; // GANTI DENGAN NOMOR WHATSAPP ANDA
 
 const replyButton = document.getElementById('replyButton');
 const replySidebar = document.getElementById('replySidebar');
@@ -248,15 +248,15 @@ sidebarOverlay.addEventListener('click', closeSidebarForm);
 // Handle form submission
 replyForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const senderName = document.getElementById('senderName').value.trim();
     const replyMessage = document.getElementById('replyMessage').value.trim();
-    
+
     if (!senderName || !replyMessage) {
         alert('Mohon isi semua field!');
         return;
     }
-    
+
     // Format pesan untuk WhatsApp
     const whatsappMessage = `*BALASAN UCAPAN RAMADHAN* 🌙
 
@@ -267,16 +267,16 @@ ${replyMessage}
 
 ---
 _Dikirim melalui Website Ucapan Ramadhan_`;
-    
+
     // Encode pesan untuk URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    
+
     // Buat URL WhatsApp
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    
+
     // Redirect ke WhatsApp
     window.open(whatsappURL, '_blank');
-    
+
     // Reset form dan tutup sidebar
     replyForm.reset();
     setTimeout(closeSidebarForm, 500);
